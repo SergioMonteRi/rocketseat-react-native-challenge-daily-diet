@@ -1,4 +1,4 @@
-import styled from 'styled-components/native'
+import styled, { css } from 'styled-components/native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
 export const SafeAreaContainer = styled(SafeAreaView)`
@@ -10,6 +10,7 @@ export const SafeAreaContainer = styled(SafeAreaView)`
 export const Header = styled.View`
   flex-direction: row;
   justify-content: space-between;
+  margin-bottom: 32px;
 `
 
 export const Logo = styled.Image`
@@ -22,7 +23,20 @@ export const ProfilePicture = styled.Image`
 `
 
 export const Title = styled.Text`
+  margin-top: 32px;
+  margin-bottom: 8px;
+
   color: ${({ theme }) => theme.COLORS.GRAY_700};
   font-size: ${({ theme }) => theme.FONT_SIZE.LG}px;
   font-family: ${({ theme }) => theme.FONT_FAMILY.REGULAR};
+`
+export const ListHeaderTitle = styled.Text`
+  ${({ theme }) => css`
+    color: ${theme.COLORS.GRAY_700};
+    font-size: ${theme.FONT_SIZE.XL}px;
+    font-family: ${theme.FONT_FAMILY.BOLD};
+  `}
+
+  margin-bottom: 8px;
+  margin-top: 32px;
 `
