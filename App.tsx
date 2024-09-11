@@ -5,8 +5,9 @@ import { useFonts } from 'expo-font'
 import { StatusBar } from 'expo-status-bar'
 import { ThemeProvider } from 'styled-components/native'
 
-import { Home } from '@screens/Home'
 import { Loading } from '@components/Loading'
+
+import { Routes } from '@routes/index'
 
 import theme from 'src/theme'
 
@@ -20,7 +21,7 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <StatusBar style="auto" />
 
-      {!fontsLoaded ? <Home /> : <Loading />}
+      {fontsLoaded ? <Routes /> : <Loading />}
     </ThemeProvider>
   )
 }
