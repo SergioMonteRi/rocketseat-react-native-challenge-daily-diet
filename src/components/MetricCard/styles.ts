@@ -1,27 +1,23 @@
 import { TouchableOpacity } from 'react-native'
 
-import styled from 'styled-components/native'
+import styled, { css } from 'styled-components/native'
 import { ArrowUpRight } from 'phosphor-react-native'
 
-import { MetricCardContainerProps } from './types'
+import { handleBackgroundColor } from '@utils/handleBackgroundColor'
 
-export const Container = styled(TouchableOpacity)<MetricCardContainerProps>`
-  border-radius: 8px;
+import { ComponentColorStyle } from 'src/types/colors'
 
-  /* min-height: 125px; */
-
+export const Container = styled(TouchableOpacity)<ComponentColorStyle>`
+  flex-grow: 1;
   align-items: center;
+
+  border-radius: 8px;
   padding: 20px 16px;
 
-  background-color: ${({ theme, type }) =>
-    type === 'health'
-      ? theme.COLORS.GREEN_LIGHT
-      : type === 'risk'
-        ? theme.COLORS.RED_LIGHT
-        : theme.COLORS.GRAY_200};
+  background-color: ${({ theme, type }) => handleBackgroundColor(theme, type)};
 `
 
-export const Icon = styled(ArrowUpRight).attrs<MetricCardContainerProps>(
+export const Icon = styled(ArrowUpRight).attrs<ComponentColorStyle>(
   ({ theme, type }) => ({
     size: 24,
     color: type === 'health' ? theme.COLORS.GREEN_DARK : theme.COLORS.RED_DARK,
@@ -33,9 +29,12 @@ export const Icon = styled(ArrowUpRight).attrs<MetricCardContainerProps>(
 `
 
 export const Number = styled.Text`
-  color: ${({ theme }) => theme.COLORS.GRAY_700};
-  font-size: ${({ theme }) => theme.FONT_SIZE.XXL}px;
-  font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
+  ${({ theme }) => css`
+    color: ${theme.COLORS.GRAY_700};
+    font-size: ${theme.FONT_SIZE.XXL}px;
+    font-family: ${theme.FONT_FAMILY.BOLD};
+  `}
+
   margin-bottom: 6px;
 `
 

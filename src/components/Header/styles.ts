@@ -1,21 +1,22 @@
-import styled, { css } from 'styled-components/native'
-import { SafeAreaView } from 'react-native-safe-area-context'
-import { ArrowLeft } from 'phosphor-react-native'
-
-import { HeaderStylesProps } from './types'
 import { Platform } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context'
 
-export const Container = styled(SafeAreaView)<HeaderStylesProps>`
+import { ArrowLeft } from 'phosphor-react-native'
+import styled, { css } from 'styled-components/native'
+
+import { ComponentColorStyle } from 'src/types/colors'
+
+import {
+  handleBackArrowColor,
+  handleBackgroundColor,
+} from '@utils/handleBackgroundColor'
+
+export const Container = styled(SafeAreaView)<ComponentColorStyle>`
   align-items: center;
 
-  background-color: ${({ theme, type }) =>
-    type === 'health'
-      ? theme.COLORS.GREEN_LIGHT
-      : type === 'risk'
-        ? theme.COLORS.RED_LIGHT
-        : theme.COLORS.GRAY_300};
+  background-color: ${({ theme, type }) => handleBackgroundColor(theme, type)};
 
-  padding: ${Platform.OS === 'android' ? '24px 0px' : '0px'};
+  padding: ${Platform.OS === 'android' ? '24px 0px' : '8px 0px 0px 0px'};
 `
 
 export const Number = styled.Text`
@@ -57,7 +58,9 @@ export const BackTitle = styled.Text`
   `}
 `
 
-export const BackIcon = styled(ArrowLeft).attrs(({ theme }) => ({
-  size: 32,
-  color: theme.COLORS.GREEN_DARK,
-}))``
+export const BackIcon = styled(ArrowLeft).attrs<ComponentColorStyle>(
+  ({ theme, type }) => ({
+    size: 32,
+    color: handleBackArrowColor(theme, type),
+  }),
+)``

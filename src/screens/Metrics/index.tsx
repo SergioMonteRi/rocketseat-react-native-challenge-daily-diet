@@ -1,4 +1,5 @@
 import { Header } from '@components/Header'
+import { MetricCard } from '@components/MetricCard'
 
 import {
   Title,
@@ -8,14 +9,9 @@ import {
   MetricCardsContainer,
 } from './styles'
 
-import { MetricsProps } from './types'
-import { MetricCard } from '@components/MetricCard'
-
-export const Metrics = (props: MetricsProps) => {
-  const { isHealht } = props
-
+export const Metrics = () => {
   return (
-    <Container>
+    <Container type={'health'}>
       <Header
         number={'90,86'}
         description={'das refeições dentro da dieta'}
@@ -26,21 +22,23 @@ export const Metrics = (props: MetricsProps) => {
       <ContentContainer>
         <Title>Estátisticas gerais</Title>
 
-        <MetricCard
-          number={'22'}
-          description={'melhor sequência de pratos dentro da dieta'}
-          type={'neutral'}
-          disabled
-        />
+        <MetricCardsContainer flexDirection={'column'}>
+          <MetricCard
+            number={'22'}
+            description={'melhor sequência de pratos dentro da dieta'}
+            type={'neutral'}
+            disabled
+          />
 
-        <MetricCard
-          number={'109'}
-          description={'refeições registradas'}
-          type={'neutral'}
-          disabled
-        />
+          <MetricCard
+            number={'109'}
+            description={'refeições registradas'}
+            type={'neutral'}
+            disabled
+          />
+        </MetricCardsContainer>
 
-        <MetricCardsContainer>
+        <MetricCardsContainer flexDirection={'row'}>
           <MetricCardWrapper>
             <MetricCard
               number={'99'}

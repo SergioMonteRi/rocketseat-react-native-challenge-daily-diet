@@ -28,7 +28,7 @@ export const Header = (props: HeaderProps) => {
       <BackContainer>
         {screenNameToBackNavigation && (
           <BackButton onPress={handleBack}>
-            <BackIcon />
+            <BackIcon type={type} />
           </BackButton>
         )}
         {backTitle && <BackTitle>{backTitle}</BackTitle>}

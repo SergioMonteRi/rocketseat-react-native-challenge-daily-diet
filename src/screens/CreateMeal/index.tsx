@@ -4,7 +4,7 @@ import { Container, ContentContainer } from './styles'
 
 export const CreateMeal = () => {
   return (
-    <Container>
+    <Container type="neutral">
       <Header
         type="neutral"
         backTitle="Nova refeição"

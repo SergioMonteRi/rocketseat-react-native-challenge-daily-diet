@@ -2,9 +2,14 @@ import { View } from 'react-native'
 
 import styled from 'styled-components/native'
 
-export const Container = styled(View)`
+import { ComponentColorStyle } from 'src/types/colors'
+import { handleBackgroundColor } from '@utils/handleBackgroundColor'
+
+export const Container = styled(View)<ComponentColorStyle>`
   flex: 1;
   flex-direction: column;
+
+  background-color: ${({ theme, type }) => handleBackgroundColor(theme, type)};
 `
 export const ContentContainer = styled.View`
   flex: 1;

@@ -1,10 +1,16 @@
 import { View } from 'react-native'
 import styled, { css } from 'styled-components/native'
 
-export const Container = styled(View)`
+import { handleBackgroundColor } from '@utils/handleBackgroundColor'
+
+import { ComponentColorStyle } from 'src/types/colors'
+import { MetricCardsContainerProps } from './types'
+
+export const Container = styled(View)<ComponentColorStyle>`
   flex: 1;
   flex-direction: column;
-  background-color: black;
+
+  background-color: ${({ theme, type }) => handleBackgroundColor(theme, type)};
 `
 export const ContentContainer = styled.View`
   flex: 1;
@@ -28,11 +34,10 @@ export const Title = styled.Text`
   margin-bottom: 12px;
 `
 
-export const MetricCardsContainer = styled.View`
-  flex-direction: row;
-  column-gap: 12px;
+export const MetricCardsContainer = styled.View<MetricCardsContainerProps>`
+  flex-direction: ${({ flexDirection }) => flexDirection};
+  gap: 12px;
 `
 export const MetricCardWrapper = styled.View`
-  background-color: black;
   flex: 1;
 `

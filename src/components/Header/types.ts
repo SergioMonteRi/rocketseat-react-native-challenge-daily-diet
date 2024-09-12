@@ -1,11 +1,9 @@
-export type HeaderStylesProps = {
-  type: 'health' | 'risk' | 'neutral'
-}
+import { ComponentColorStyle } from 'src/types/colors'
 
 export type HeaderProps = {
   number?: string
   description?: string
   backTitle?: string
   screenNameToBackNavigation?: 'home' | 'metrics' | 'createMeal'
-  type: 'health' | 'risk' | 'neutral'
+  type: ComponentColorStyle['type']
 }

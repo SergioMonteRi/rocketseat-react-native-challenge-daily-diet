@@ -1,3 +1,3 @@
-export type MetricsProps = {
-  isHealht: boolean
+export type MetricCardsContainerProps = {
+  flexDirection: 'row' | 'column'
 }
