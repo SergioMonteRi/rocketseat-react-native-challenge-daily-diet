@@ -55,10 +55,14 @@ export const Home = () => {
     navigation.navigate('createMeal')
   }
 
+  const handleSeeMetrics = () => {
+    navigation.navigate('metrics')
+  }
+
   return (
     <SafeAreaContainer>
       <SectionList
-        sections={[]}
+        sections={DATA}
         keyExtractor={(item, index) => item.time + index}
         renderItem={({ item }) => (
           <MealCard
@@ -78,7 +82,13 @@ export const Home = () => {
                 <ProfilePicture source={images.profilePhoto} />
               </Header>
 
-              <MetricCard />
+              <MetricCard
+                number="90,86"
+                description="das refeições dentro da dieta"
+                type="health"
+                onPress={handleSeeMetrics}
+                hasIcon
+              />
 
               <Title>Refeições</Title>
 

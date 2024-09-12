@@ -1,13 +1,17 @@
+import { MetricCardProps } from './types'
+
 import { Icon, Container, Number, Description } from './styles'
 
-export const MetricCard = () => {
+export const MetricCard = (props: MetricCardProps) => {
+  const { number, description, type, hasIcon = false, ...rest } = props
+
   return (
-    <Container>
-      <Icon />
+    <Container type={type} {...rest}>
+      {hasIcon && <Icon type={type} />}
 
-      <Number>90,86%</Number>
+      <Number>{number}</Number>
 
-      <Description>das refeições dentro da dieta</Description>
+      <Description>{description}</Description>
     </Container>
   )
 }

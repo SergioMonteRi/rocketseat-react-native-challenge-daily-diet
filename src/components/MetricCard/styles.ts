@@ -1,20 +1,30 @@
+import { TouchableOpacity } from 'react-native'
+
 import styled from 'styled-components/native'
 import { ArrowUpRight } from 'phosphor-react-native'
 
-export const Container = styled.TouchableOpacity`
-  width: 100%;
+import { MetricCardContainerProps } from './types'
+
+export const Container = styled(TouchableOpacity)<MetricCardContainerProps>`
   border-radius: 8px;
 
   align-items: center;
   padding: 20px 16px;
 
-  background-color: ${({ theme }) => theme.COLORS.GREEN_LIGHT};
+  background-color: ${({ theme, type }) =>
+    type === 'health'
+      ? theme.COLORS.GREEN_LIGHT
+      : type === 'risk'
+        ? theme.COLORS.RED_LIGHT
+        : theme.COLORS.GRAY_200};
 `
 
-export const Icon = styled(ArrowUpRight).attrs(({ theme }) => ({
-  size: 24,
-  color: theme.COLORS.GREEN_DARK,
-}))`
+export const Icon = styled(ArrowUpRight).attrs<MetricCardContainerProps>(
+  ({ theme, type }) => ({
+    size: 24,
+    color: type === 'health' ? theme.COLORS.GREEN_DARK : theme.COLORS.RED_DARK,
+  }),
+)`
   position: absolute;
   top: 8px;
   right: 8px;
@@ -28,5 +38,6 @@ export const Number = styled.Text`
 `
 
 export const Description = styled.Text`
+  text-align: center;
   color: ${({ theme }) => theme.COLORS.GRAY_600};
 `
