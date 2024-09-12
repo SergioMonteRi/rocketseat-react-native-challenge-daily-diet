@@ -8,6 +8,8 @@ import { MetricCardContainerProps } from './types'
 export const Container = styled(TouchableOpacity)<MetricCardContainerProps>`
   border-radius: 8px;
 
+  /* min-height: 125px; */
+
   align-items: center;
   padding: 20px 16px;
 

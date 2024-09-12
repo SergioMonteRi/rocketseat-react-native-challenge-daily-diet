@@ -4,12 +4,12 @@ import styled, { css } from 'styled-components/native'
 export const Container = styled(View)`
   flex: 1;
   flex-direction: column;
+  background-color: black;
 `
 export const ContentContainer = styled.View`
   flex: 1;
 
   padding: 32px 24px;
-  margin-top: -20px;
   row-gap: 12px;
 
   border-top-left-radius: 20px;
@@ -33,5 +33,6 @@ export const MetricCardsContainer = styled.View`
   column-gap: 12px;
 `
 export const MetricCardWrapper = styled.View`
+  background-color: black;
   flex: 1;
 `

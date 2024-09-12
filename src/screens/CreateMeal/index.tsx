@@ -1,10 +1,17 @@
-import { View, Text } from 'react-native'
 import React from 'react'
+import { Header } from '@components/Header'
+import { Container, ContentContainer } from './styles'
 
 export const CreateMeal = () => {
   return (
-    <View>
-      <Text>Create Meal</Text>
-    </View>
+    <Container>
+      <Header
+        type="neutral"
+        backTitle="Nova refeição"
+        screenNameToBackNavigation="home"
+      />
+
+      <ContentContainer></ContentContainer>
+    </Container>
   )
 }

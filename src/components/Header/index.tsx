@@ -1,25 +1,41 @@
-import { HeaderProps } from './types'
-
-import { BackButton, BackIcon, Container, Description, Number } from './styles'
 import { useNavigation } from '@react-navigation/native'
 
+import { HeaderProps } from './types'
+
+import {
+  Number,
+  BackIcon,
+  BackTitle,
+  Container,
+  BackButton,
+  Description,
+  BackContainer,
+} from './styles'
+
 export const Header = (props: HeaderProps) => {
-  const { type, description, number } = props
+  const { type, description, number, backTitle, screenNameToBackNavigation } =
+    props
 
   const navigation = useNavigation()
 
   const handleBack = () => {
-    navigation.navigate('home')
+    screenNameToBackNavigation &&
+      navigation.navigate(screenNameToBackNavigation)
   }
 
   return (
     <Container type={type}>
-      <BackButton onPress={handleBack}>
-        <BackIcon />
-      </BackButton>
+      <BackContainer>
+        {screenNameToBackNavigation && (
+          <BackButton onPress={handleBack}>
+            <BackIcon />
+          </BackButton>
+        )}
+        {backTitle && <BackTitle>{backTitle}</BackTitle>}
+      </BackContainer>
 
-      <Number>{number}%</Number>
-      <Description>{description}</Description>
+      {number && <Number>{number}%</Number>}
+      {description && <Description>{description}</Description>}
     </Container>
   )
 }

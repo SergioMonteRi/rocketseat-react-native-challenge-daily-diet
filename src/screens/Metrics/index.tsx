@@ -20,6 +20,7 @@ export const Metrics = (props: MetricsProps) => {
         number={'90,86'}
         description={'das refeições dentro da dieta'}
         type={'health'}
+        screenNameToBackNavigation={'home'}
       />
 
       <ContentContainer>
